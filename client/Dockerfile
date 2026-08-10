@@ -1,14 +1,19 @@
-FROM node:16
+FROM node:20-alpine
 
-WORKDIR /usr/src/app
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm ci
+
 
 COPY . .
-
-RUN npm ci --no-audit --legacy-peer-deps || npm ci --no-audit --legacy-peer-deps --maxsockets 1
 
 RUN npm run build
 
 RUN npm install -g serve
+
+
 
 EXPOSE 3000
 

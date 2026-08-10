@@ -1,11 +1,13 @@
-FROM node:16
+FROM node:22-alpine
 
-WORKDIR /usr/src/app
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
 
 COPY . .
 
-RUN npm ci --no-audit || npm ci --no-audit --maxsockets 1
+EXPOSE 9000 
 
-EXPOSE 9000
-
-CMD [ "npm", "start" ]
+CMD ["npm", "start"]

@@ -13,7 +13,10 @@ const pool = new Pool({
   /*
     SSL is not supported in development
     */
-  ssl: isProduction ? { rejectUnauthorized: false } : false,
+  ssl:
+  process.env.POSTGRES_SSL === "true"
+    ? { rejectUnauthorized: false }
+    : false,
 });
 
 module.exports = {

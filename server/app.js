@@ -24,6 +24,12 @@ app.use("/api", routes);
 app.get("/", (req, res) =>
   res.send("<h1 style='text-align: center'>E-COMMERCE API</h1>")
 );
+
+// Health Check Route
+app.get("/health", (req, res) => {
+  res.status(200).json({ status: "OK" });
+});
+
 app.use(unknownEndpoint);
 app.use(handleError);
 
