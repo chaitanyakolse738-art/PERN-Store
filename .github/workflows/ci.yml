@@ -90,7 +90,7 @@ jobs:
 
 
      - name: artifact upload
-       uses: actions/upload-artifact@v3
+       uses: actions/upload-artifact@v7
        with:
           name: lint-log
           path: ./server/lint.log
