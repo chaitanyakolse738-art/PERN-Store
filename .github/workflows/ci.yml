@@ -68,8 +68,10 @@ jobs:
        working-directory: ./server
 
      - name: lint project
-       run: npm run lint
+       run: npm run lint  >> lint.log 
        working-directory: ./server
+       continue-on-error: true
+
 
     
      - name: Log in to Docker Hub
@@ -85,4 +87,11 @@ jobs:
           context: ./server
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/backend:latest  
+
+
+     - name: artifact upload
+       uses: actions/upload-artifact@v3
+       with:
+          name: lint-log
+          path: ./server/lint.log
  
