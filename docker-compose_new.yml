@@ -30,9 +30,10 @@ services:
   
 
   server:
-    build: 
-     context: ./server
-     dockerfile: Dockerfile
+    build:
+    image: chaitanya057/backend:latest
+    context: ./server
+    dockerfile: Dockerfile
     container_name: pern-store-server
     env_file:
        - ./server/.env
@@ -56,8 +57,9 @@ services:
 
   client:
     build: 
-      context: ./client
-      dockerfile: Dockerfile
+    image: chaitanya057/forntend:latest
+    context: ./client
+    dockerfile: Dockerfile
     container_name: frontend-pern-store
     env_file:
         - ./client/.env
