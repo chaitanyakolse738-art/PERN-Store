@@ -59,8 +59,6 @@ services:
      dockerfile: Dockerfile
     image: chaitanya057/frontend:latest
     container_name: frontend-pern-store
-    env_file:
-        - ./client/.env
     ports:
       - 3003:3000
 
