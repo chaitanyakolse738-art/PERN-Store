@@ -15,6 +15,9 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v6
 
+      - name: copy .env file
+        run: cp client/.env.example client/.env
+
 
       - name: setup node
         uses: actions/setup-node@v3
