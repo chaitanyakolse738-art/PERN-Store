@@ -19,7 +19,6 @@ jobs:
 
       - name: copy .env file
         run: |
-          cp client/.env.example client/.env
           cp server/.env.example server/.env
           cp .env.example .env
 
