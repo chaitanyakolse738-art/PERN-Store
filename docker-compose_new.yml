@@ -34,7 +34,7 @@ services:
     image: chaitanya057/backend:latest
     container_name: pern-store-server
     env_file:
-       - ./server/.env_example
+       - ./server/.env
 
     ports:
       - 8000:9000
